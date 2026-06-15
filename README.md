@@ -1,91 +1,131 @@
-# skill-generator
+# Skill Generator
 
-`skill-generator` is an OpenClaw-native skill-development aid for designing, drafting, reviewing, validating, and packaging reviewable OpenClaw skills.
+Build safer OpenClaw skills from rough idea to reviewable folder.
 
-The project helps users and agents move from a rough skill idea to a maintainable skill folder without confusing instructions with actual capabilities.
+`skill-generator` is an OpenClaw-native skill-development aid for designing, drafting, reviewing, and validating `SKILL.md`-based agent skills.
 
-## Status
+It helps OpenClaw users turn a loose skill concept into a clear, maintainable, auditable skill folder that can be reviewed before installation.
 
-Draft / v0.1 scaffold.
+## Why this exists
 
-This repository is not yet installed or tested as an active OpenClaw skill.
+OpenClaw skills are powerful because they let users teach agents repeatable behaviors through plain Markdown instructions.
 
-## Purpose
+But without a clear design process, a skill can become:
 
-Use this project to help create OpenClaw skills that are:
+* too vague to use reliably
+* too broad to review safely
+* unclear about required tools or permissions
+* overloaded with long instructions
+* risky because secrets, shell commands, or third-party assumptions are not reviewed carefully
 
-- clear
-- concise
-- auditable
-- maintainable
-- safe for agent use
-- easy to review before installation
+Skill Generator helps solve that problem by guiding the skill author through a structured, security-conscious workflow.
 
-## Non-Goals
+## What it helps you create
 
-This project does not:
+A reviewable OpenClaw skill folder such as:
 
-- grant tool access
-- install skills automatically
-- bypass OpenClaw Skill Workshop
-- modify active `SKILL.md` files without review
-- store credentials, secrets, tokens, private keys, session cookies, or SecretRef values
-- replace official OpenClaw documentation
-- act as a ClawHub marketplace or publishing system
+```text
+my-skill/
+  SKILL.md
+  references/
+    usage.md
+    security-notes.md
+  examples/
+    input.json
+    output.json
+```
 
-## Repository Structure
+The goal is not to make skills more complicated. The goal is to make them easier to understand, test, review, and maintain.
 
-    skill-generator/
+## How it works
+
+Skill Generator guides the author through five practical steps:
+
+1. **Clarify the idea**
+   Define what the skill should do, when it should be used, and when it should not be used.
+
+2. **Design the folder**
+   Choose the smallest useful structure for the skill.
+
+3. **Draft `SKILL.md`**
+   Keep the main skill instructions concise, operational, and easy for an agent to follow.
+
+4. **Add support files only when useful**
+   Move longer examples, schemas, checklists, or notes into `references/`, `examples/`, or scripts when they improve reviewability.
+
+5. **Review before installation**
+   Check metadata, dependencies, permissions, security risks, examples, and failure behavior before treating the skill as ready.
+
+## What is included
+
+This repository includes:
+
+```text
+skill-generator/
+  SKILL.md
+  README.md
+  NOTICE.md
+  LICENSE.txt
+  references/
+    skill-design-workflow.md
+    review-checklist.md
+    security-guidelines.md
+    third-party-review.md
+    skill-workshop-flow.md
+  examples/
+    minimal-skill/
       SKILL.md
-      README.md
-      NOTICE.md
-      LICENSE.txt
-      .gitignore
+    skill-with-reference/
+      SKILL.md
       references/
-        skill-design-workflow.md
-        review-checklist.md
-        security-guidelines.md
-        third-party-review.md
-        skill-workshop-flow.md
-      examples/
-        minimal-skill/
-          SKILL.md
-        skill-with-reference/
-          SKILL.md
-          references/
-            usage.md
+        usage.md
+```
 
-## Design Principles
+## Use cases
 
-### Separate instructions from capabilities
+Use Skill Generator when you want to:
 
-A skill can instruct an agent how to use available tools, files, APIs, binaries, and credentials. It does not create those capabilities by itself.
+* design a new OpenClaw skill
+* rewrite a rough skill idea into a reviewable folder
+* improve an existing `SKILL.md`
+* separate concise instructions from longer reference material
+* review a third-party skill before adapting it
+* prepare a skill for human review before installation
 
-### Keep `SKILL.md` concise
+## Safety model
 
-The root `SKILL.md` should contain operational instructions the agent can follow. Longer explanations, examples, checklists, schemas, and policy notes belong in `references/`.
+A skill is instruction, not capability.
 
-### Use scripts carefully
+Skill Generator does not grant tool access, credentials, filesystem permissions, network access, or API access. Any required capability must exist separately in the user’s OpenClaw environment.
 
-Scripts are appropriate when they improve repeatability, validation, formatting, packaging, or safety.
+This project is designed to help authors avoid common skill risks, including:
 
-Scripts should not hide risky behavior, make unexpected network calls, write outside approved paths, or handle secrets casually.
+* unclear scope
+* hidden assumptions
+* overbroad permissions
+* unreviewed third-party code
+* unsafe shell commands
+* embedded secrets or credentials
+* confusing generated drafts with approved installed skills
 
-### Treat third-party skills as untrusted
+## What this is not
 
-External skills should be reviewed before reuse. Review for prompt injection, unsafe commands, credential exposure, hidden behavior, dependency risk, broad permissions, and license/provenance issues.
+Skill Generator does not:
 
-## Workflow
+* install skills automatically
+* bypass OpenClaw Skill Workshop
+* replace official OpenClaw documentation
+* act as a ClawHub marketplace or publishing system
+* make unreviewed third-party skills safe by default
+* modify active skills without review
 
-1. Clarify the skill idea.
-2. Define intended use cases and non-goals.
-3. Identify external capabilities and permissions.
-4. Choose a minimal folder structure.
-5. Draft `SKILL.md`.
-6. Add references, examples, or scripts only when useful.
-7. Review security and maintainability.
-8. Validate structure and metadata.
-9. Prepare for human review before installation or publication.
+## Project status
+
+This repository is currently a v0.1 scaffold.
+
+It has been drafted, committed, pushed publicly, and reviewed for baseline structure and safety. It has not yet been installed or runtime-tested as an active OpenClaw skill.
+
+Treat it as reviewable source material until installation and testing are completed deliberately.
 
 ## License
 
