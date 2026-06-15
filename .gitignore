@@ -40,3 +40,6 @@ yarn-error.log*
 *.cer
 secrets/
 private/
+
+# VS Code workspace files
+*.code-workspace
