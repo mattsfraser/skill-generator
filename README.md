@@ -75,6 +75,10 @@ skill-generator/
   examples/
     minimal-skill/
       SKILL.md
+    third-party-api-skill/
+      SKILL.md
+      references/
+        source-packets.md
     skill-with-reference/
       SKILL.md
       references/
@@ -90,6 +94,7 @@ Use Skill Generator when you want to:
 * improve an existing `SKILL.md`
 * separate concise instructions from longer reference material
 * review a third-party skill before adapting it
+* model external API requirements without embedding credentials or tool access
 * prepare a skill for human review before installation
 
 ## Safety model

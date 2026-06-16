@@ -134,6 +134,10 @@ Examples should be:
 
 Avoid examples that require private systems unless clearly marked.
 
+For third-party API skill examples, verify external tool boundaries, source
+packet fields, credential handling, and approval gates. See
+`examples/third-party-api-skill/` for a reviewable pattern.
+
 ## 10. Maturity Classification
 
 Classify the skill as one of:
