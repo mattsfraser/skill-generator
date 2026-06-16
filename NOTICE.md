@@ -21,6 +21,9 @@ These packages were used for review and comparison only.
 
 No upstream `SKILL.md` text, scripts, package metadata, or support files are copied into this repository unless a later revision explicitly documents that change here.
 
+The third-party API example names TweetClaw as a public external tool example.
+No TweetClaw files are copied into this repository.
+
 ## Reviewed Source Findings
 
 ### skill-creator v0.1.0
